@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Layout:</strong>
+  <%= @card.layout %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @card.type %>
+</p>
+
+<p>
+  <strong>Colors:</strong>
+  <%= @card.colors %>
+</p>
+
+<p>
+  <strong>Multiverseid:</strong>
+  <%= @card.multiverseid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @card.name %>
+</p>
+
+<p>
+  <strong>Cmc:</strong>
+  <%= @card.cmc %>
+</p>
+
+<p>
+  <strong>Rarity:</strong>
+  <%= @card.rarity %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @card.artist %>
+</p>
+
+<p>
+  <strong>Manacost:</strong>
+  <%= @card.manaCost %>
+</p>
+
+<p>
+  <strong>Oracletext:</strong>
+  <%= @card.oracleText %>
+</p>
+
+<p>
+  <strong>Collectornumber:</strong>
+  <%= @card.collectorNumber %>
+</p>
+
+<p>
+  <strong>Imagename:</strong>
+  <%= @card.imageName %>
+</p>
+
+<p>
+  <strong>Legalities:</strong>
+  <%= @card.legalities %>
+</p>
+
+<p>
+  <strong>Printings:</strong>
+  <%= @card.printings %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

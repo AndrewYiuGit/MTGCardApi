@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  layout: MyString
+  type: 
+  colors: MyString
+  multiverseid: 1
+  name: MyString
+  cmc: 9.99
+  rarity: MyString
+  artist: MyString
+  manaCost: MyString
+  oracleText: MyText
+  collectorNumber: MyString
+  imageName: MyString
+  legalities: MyString
+  printings: MyString
+
+two:
+  layout: MyString
+  type: 
+  colors: MyString
+  multiverseid: 1
+  name: MyString
+  cmc: 9.99
+  rarity: MyString
+  artist: MyString
+  manaCost: MyString
+  oracleText: MyText
+  collectorNumber: MyString
+  imageName: MyString
+  legalities: MyString
+  printings: MyString

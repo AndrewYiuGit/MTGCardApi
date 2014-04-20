@@ -1,0 +1,53 @@
+<h1>Listing cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Layout</th>
+      <th>Type</th>
+      <th>Colors</th>
+      <th>Multiverseid</th>
+      <th>Name</th>
+      <th>Cmc</th>
+      <th>Rarity</th>
+      <th>Artist</th>
+      <th>Manacost</th>
+      <th>Oracletext</th>
+      <th>Collectornumber</th>
+      <th>Imagename</th>
+      <th>Legalities</th>
+      <th>Printings</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.layout %></td>
+        <td><%= card.type %></td>
+        <td><%= card.colors %></td>
+        <td><%= card.multiverseid %></td>
+        <td><%= card.name %></td>
+        <td><%= card.cmc %></td>
+        <td><%= card.rarity %></td>
+        <td><%= card.artist %></td>
+        <td><%= card.manaCost %></td>
+        <td><%= card.oracleText %></td>
+        <td><%= card.collectorNumber %></td>
+        <td><%= card.imageName %></td>
+        <td><%= card.legalities %></td>
+        <td><%= card.printings %></td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_card_path %>

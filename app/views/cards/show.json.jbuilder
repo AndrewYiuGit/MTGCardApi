@@ -1,0 +1,1 @@
+json.extract! @card, :id, :layout, :type, :colors, :multiverseid, :name, :cmc, :rarity, :artist, :manaCost, :oracleText, :collectorNumber, :imageName, :legalities, :printings, :created_at, :updated_at

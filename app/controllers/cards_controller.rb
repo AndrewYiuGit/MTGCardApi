@@ -12,7 +12,6 @@ class CardsController < ApplicationController
       formatted_response.push(formatted_card)
     end
 
-    # render json: search_results.to_json
     render json: formatted_response.to_json
   end
 
@@ -26,11 +25,58 @@ class CardsController < ApplicationController
     render json: formatted_response.to_json
   end
 
+  def find_by_setname
+    set_name = params[:name]
+    search_result = MtgSet.where("name LIKE ?", set_name).limit(1).first
+
+    formatted_response = []
+
+    unless search_result.nil?
+      search_result.cards.each do |card|
+        formatted_card = format_card(card)
+        formatted_response.push(formatted_card)
+      end
+    end
+
+    render json: formatted_response.to_json
+  end
+
+  def find_by_setcode
+    set_code = params[:code]
+    search_result = MtgSet.where("code LIKE ?", set_code).limit(1).first
+
+    formatted_response = []
+
+    unless search_result.nil?
+      search_result.cards.each do |card|
+        formatted_card = format_card(card)
+        formatted_response.push(formatted_card)
+      end
+    end
+
+    render json: formatted_response.to_json
+  end
+
+  def find_by_block
+    block = params[:block]
+    search_results = MtgSet.where("block LIKE ?", block)
+
+    formatted_response = []
+
+    search_results.each do |search_result|
+      search_result.cards.each do |card|
+        formatted_card = format_card(card)
+        formatted_response.push(formatted_card)
+      end
+    end
+
+    render json: formatted_response.to_json
+  end
+
   private
 
   def format_card(card)
     formatted_card = {
-      'id' => card.id,
       'multiverseId' => card.multiverse_id,
       'name' => card.name,
       'cmc' => card.cmc.to_f,

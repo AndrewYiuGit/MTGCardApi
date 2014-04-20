@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MtgDatabaseApi::Application.config.secret_key_base = 'e8196d7c4999e18441ae842906a926891bc55ca0fa30a52743c6b9ddf214818466678a60568e7cc79cc82c5f1eb34f334a31ab403aaaea387db0ced1f3448dda'
+MtgDatabaseApi::Application.config.secret_key_base = ENV['SECRET_TOKEN']

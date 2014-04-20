@@ -5,7 +5,7 @@ class CreateMtgSets < ActiveRecord::Migration
       t.string :code
       t.date :release_date
       t.string :border
-      t.string :type
+      t.string :set_type
       t.string :block
 
       t.timestamps

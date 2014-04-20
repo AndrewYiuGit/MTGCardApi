@@ -1,74 +1,52 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
 
-  # GET /cards
-  # GET /cards.json
-  def index
-    @cards = Card.all
-  end
+  #GET /card/:name
+  def find_by_name
+    search_name = params[:name]
+    search_results = Card.where("name LIKE ?", "%" + search_name + "%")
 
-  # GET /cards/1
-  # GET /cards/1.json
-  def show
-  end
+    formatted_response = []
 
-  # GET /cards/new
-  def new
-    @card = Card.new
-  end
-
-  # GET /cards/1/edit
-  def edit
-  end
-
-  # POST /cards
-  # POST /cards.json
-  def create
-    @card = Card.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @card }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
+    search_results.each do |card|
+      formatted_card = format_card(card)
+      formatted_response.push(formatted_card)
     end
+
+    # render json: search_results.to_json
+    render json: formatted_response.to_json
   end
 
-  # PATCH/PUT /cards/1
-  # PATCH/PUT /cards/1.json
-  def update
-    respond_to do |format|
-      if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
+  def find_by_id
+    search_result = Card.find_by_multiverse_id(params[:multiverseid])
+    formatted_response = {}
+    unless search_result.nil?
+      formatted_response = format_card(search_result)
     end
-  end
 
-  # DELETE /cards/1
-  # DELETE /cards/1.json
-  def destroy
-    @card.destroy
-    respond_to do |format|
-      format.html { redirect_to cards_url }
-      format.json { head :no_content }
-    end
+    render json: formatted_response.to_json
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_card
-      @card = Card.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def card_params
-      params.require(:card).permit(:layout, :type, :colors, :multiverseid, :name, :cmc, :rarity, :artist, :manaCost, :oracleText, :collectorNumber, :imageName, :legalities, :printings)
-    end
+  def format_card(card)
+    formatted_card = {
+      'id' => card.id,
+      'multiverseId' => card.multiverse_id,
+      'name' => card.name,
+      'cmc' => card.cmc.to_f,
+      'manaCost' => card.mana_cost,
+      'colors' => YAML.load(card.colors),
+      'rarity' => card.rarity,
+      'type' => card.card_type,
+      'types' => YAML.load(card.card_types),
+      'subtypes' => YAML.load(card.subtypes),
+      'text' => card.oracle_text,
+      'collectorNumber' => card.collector_number,
+      'artist' => card.artist,
+      'imageName' => card.image_name,
+      'legalities' => YAML.load(card.legalities),
+      'printings' => YAML.load(card.printings),
+      'layout' => card.layout
+    }
+  end
 end

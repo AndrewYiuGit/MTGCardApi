@@ -4,8 +4,8 @@ class CreateCards < ActiveRecord::Migration
       t.belongs_to :mtg_set
 
       t.string :layout
-      t.string :type
-      t.string :types
+      t.string :card_type
+      t.string :card_types
       t.string :subtypes
       t.string :colors
       t.integer :multiverse_id

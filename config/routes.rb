@@ -1,5 +1,7 @@
 MtgDatabaseApi::Application.routes.draw do
 
+  root 'static_pages#index'
+
   get '/cards/id/:multiverseid' => 'cards#find_by_id'
   get '/cards/name/:name' => 'cards#find_by_name'
   get '/cards/setname/:name' => 'cards#find_by_setname'

@@ -10,5 +10,5 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 
-secret_token = Rails.env.production? ENV['SECRET_TOKEN'] : "secret_token"
+secret_token = Rails.env.production? ? ENV['SECRET_TOKEN'] : "secret_token"
 MtgDatabaseApi::Application.config.secret_key_base = secret_token

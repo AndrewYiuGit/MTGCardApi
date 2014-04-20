@@ -4,4 +4,7 @@ This project uses Rails version 4.0.3 with Ruby version 2.1.1. Make sure to <tt>
 
 The api returns card data for all cards currently in Standard format. Data provided by MTG JSON at http://mtgjson.com
 
+Project currently hosted on heroku ar http://standardmagic.herokuapp.com
+
+
 This project is not affiliated with Wizards of the Coast in any way.

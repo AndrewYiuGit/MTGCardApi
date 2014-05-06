@@ -25,22 +25,6 @@ class CardsController < ApplicationController
     render json: formatted_response.to_json
   end
 
-  def find_by_setname
-    set_name = params[:name]
-    search_result = MtgSet.where("name LIKE ?", set_name).limit(1).first
-
-    formatted_response = []
-
-    unless search_result.nil?
-      search_result.cards.each do |card|
-        formatted_card = format_card(card)
-        formatted_response.push(formatted_card)
-      end
-    end
-
-    render json: formatted_response.to_json
-  end
-
   def find_by_setcode
     set_code = params[:code]
     search_result = MtgSet.where("code LIKE ?", set_code).limit(1).first

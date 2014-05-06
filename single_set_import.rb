@@ -1,4 +1,4 @@
-require '~/documents/mtg_database_api/config/environment.rb'
+require '/app/config/environment.rb'
 require 'rubygems'
 require 'json'
 require 'io/console'

@@ -2,7 +2,7 @@ MtgDatabaseApi::Application.routes.draw do
 
   root 'static_pages#index'
 
-  get '/cards/id' => 'cards#find_by_id'
+  get '/card/id' => 'cards#find_by_id'
   get '/cards/name' => 'cards#find_by_name'
   get '/cards/code' => 'cards#find_by_setcode'
   get '/cards/block' => 'cards#find_by_block'

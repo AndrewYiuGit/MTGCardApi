@@ -19,7 +19,6 @@
 
 <a name="endpoints"></a>
 <div class="panel panel-default">
-  <!-- Default panel contents -->
   <div class="panel-heading">
     <h2 class="panel-title"><strong>API Endpoints:</strong></h2>
   </div>
@@ -32,37 +31,37 @@
     </li>
     <li class="list-group-item">
       <div>
-        <h4><code>/cards/id/:multiverse_id</code></h4>
-        Returns card data given a <kbd>multiverse id</kbd><br>
-        Ex. <code>/cards/id/378456</code>
+        <h4><code>/cards/id</code></h4>
+        Returns card data given a <kbd>multiverse_id</kbd><br>
+        Ex. <code>/cards/id?multiverse_id=378456</code>
       </div>
     </li>
     <li class="list-group-item">
       <div>
-        <h4><code>/cards/name/:card_name</code></h4>
-        Returns card data given a <kbd>card name</kbd><br>
-        Ex. <code>/cards/name/spiteful%20returned</code>
+        <h4><code>/cards/name</code></h4>
+        Returns card data given a <kbd>card_name</kbd><br>
+        Ex. <code>/cards/name?card_name=spiteful%20returned</code>
       </div>
     </li>
     <li class="list-group-item">
       <div>
-        <h4><code>/cards/setcode/:set_code</code></h4>
-        Returns a JSON array of cards given a <kbd>set code</kbd><br>
-        Ex. <code>/cards/setcode/THS</code>
+        <h4><code>/cards/code/:set_code</code></h4>
+        Returns a JSON array of cards given a <kbd>set_code</kbd><br>
+        Ex. <code>/cards/code?set_code=THS</code>
       </div>
     </li>
     <li class="list-group-item">
       <div>
-        <h4><code>/cards/block/:block_name</code></h4>
-        Returns a JSON array of cards given a <kbd>block name</kbd><br>
-        Ex. <code>/cards/block/Theros</code>
+        <h4><code>/cards/block</code></h4>
+        Returns a JSON array of cards given a <kbd>block_name</kbd><br>
+        Ex. <code>/cards/block?block_name=Theros</code>
       </div>
     </li>
     <li class="list-group-item">
       <div>
-        <h4><code>/sets/:block</code></h4>
-        Returns a JSON array of all sets in a given <kbd>block</kbd><br>
-        Ex. <code>/sets/Theros</code>
+        <h4><code>/sets</code></h4>
+        Returns a JSON array of all sets in a given <kbd>block_name</kbd><br>
+        Ex. <code>/sets?block_name=Theros</code>
       </div>
     </li>
   </ul>

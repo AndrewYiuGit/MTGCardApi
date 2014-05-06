@@ -2,7 +2,7 @@ class CardsController < ApplicationController
 
   #GET /card/:name
   def find_by_name
-    search_name = params[:name]
+    search_name = params[:card_name]
     search_results = Card.where("name LIKE ?", "%" + search_name + "%")
 
     formatted_response = []
@@ -16,7 +16,8 @@ class CardsController < ApplicationController
   end
 
   def find_by_id
-    search_result = Card.find_by_multiverse_id(params[:multiverseid])
+    search_multiverse = params[:multiverse_id]
+    search_result = Card.find_by_multiverse_id(search_multiverse)
     formatted_response = {}
     unless search_result.nil?
       formatted_response = format_card(search_result)
@@ -26,7 +27,7 @@ class CardsController < ApplicationController
   end
 
   def find_by_setcode
-    set_code = params[:code]
+    set_code = params[:set_code]
     search_result = MtgSet.where("code LIKE ?", set_code).limit(1).first
 
     formatted_response = []
@@ -42,7 +43,7 @@ class CardsController < ApplicationController
   end
 
   def find_by_block
-    block = params[:block]
+    block = params[:block_name]
     search_results = MtgSet.where("block LIKE ?", block)
 
     formatted_response = []

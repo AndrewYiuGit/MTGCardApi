@@ -12,8 +12,8 @@ class MtgSetsController < ApplicationController
   end
 
   def sets_by_block
-    block = params[:block]
-    search_results = MtgSet.where("block ILIKE ?", "%" + block + "%")
+    block = params[:block_name]
+    search_results = MtgSet.where("block LIKE ?", "%" + block + "%")
     formatted_response = []
 
     search_results.each do |result|

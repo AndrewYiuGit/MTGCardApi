@@ -1,1 +1,15 @@
 @import "bootstrap";
+
+a:hover {
+  color:#168491 !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+a:active {
+  color:#168491 !important;
+}
+
+h4 > code {
+  color: #2D9E28 !important;
+}

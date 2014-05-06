@@ -1,3 +1,8 @@
+require '~/documents/mtg_database_api/config/environment.rb'
+require 'rubygems'
+require 'json'
+require 'io/console'
+
 def populate_with_set(mtg_set)
   new_set = MtgSet.new
   new_set.name = mtg_set['name']
@@ -40,26 +45,7 @@ def populate_with_set(mtg_set)
   end
 end
 
-# Get all the data for sets currently in standard
-m14_json = IO.read('card_json/M14-x.json')
-rtr_json = IO.read('card_json/RTR-x.json')
-gtc_json = IO.read('card_json/GTC-x.json')
-dgm_json = IO.read('card_json/DGM-x.json')
-ths_json = IO.read('card_json/THS-x.json')
-bng_json = IO.read('card_json/BNG-x.json')
-jou_json = IO.read('card_json/JOU-x.json')
-m14_hash = JSON.parse m14_json
-rtr_hash = JSON.parse rtr_json
-gtc_hash = JSON.parse gtc_json
-dgm_hash = JSON.parse dgm_json
-ths_hash = JSON.parse ths_json
-bng_hash = JSON.parse bng_json
-jou_hash = JSON.parse jou_json
-
-populate_with_set(m14_hash)
-populate_with_set(rtr_hash)
-populate_with_set(gtc_hash)
-populate_with_set(dgm_hash)
-populate_with_set(ths_hash)
-populate_with_set(bng_hash)
-populate_with_set(jou_hash)
+#Replace the file name in the IO.read with the set you want to export
+set_json = IO.read('card_json/JOU-x.json')
+set_hash = JSON.parse set_json
+populate_with_set(set_hash)

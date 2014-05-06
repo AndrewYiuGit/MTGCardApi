@@ -1,4 +1,68 @@
 <div class="jumbotron">
   <h1>Standard Magic API</h1>
-  <p>An API for all the cards currently legal in Standard!</p>
+  <p>An API to return JSON for all the cards currently legal in Standard!</p>
+  Jump to: <a href="#standard">Sets in Standard</a> / <a href="#endpoints">API Endpoints</a>
+</div>
+
+<a name="standard"></a>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2 class="panel-title"><strong>Sets in Standard:</strong></h2>
+  </div>
+  <ul class="list-group">
+    <% @mtg_sets.each do |mtg_set| %>
+      <li class="list-group-item"><%= mtg_set.name %> <strong>(<%= mtg_set.code %>)</strong></li>
+    <% end %>
+  </ul>
+</div>
+
+<a name="endpoints"></a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title"><strong>API Endpoints:</strong></h2>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div>
+        <h4><code>/sets/standard</code></h4>
+        Returns a JSON array of all sets in standard</kbd>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <h4><code>/card/id</code></h4>
+        Returns a JSON object for a card given a <kbd>multiverse_id</kbd><br>
+        Ex. <code>/card/id?multiverse_id=378456</code>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <h4><code>/cards/name</code></h4>
+        Returns a JSON array of cards given a <kbd>card_name</kbd><br>
+        Ex. <code>/cards/name?card_name=spiteful%20returned</code>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <h4><code>/cards/code/:set_code</code></h4>
+        Returns a JSON array of cards given a <kbd>set_code</kbd><br>
+        Ex. <code>/cards/code?set_code=THS</code>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <h4><code>/cards/block</code></h4>
+        Returns a JSON array of cards given a <kbd>block_name</kbd><br>
+        Ex. <code>/cards/block?block_name=Theros</code>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <h4><code>/sets</code></h4>
+        Returns a JSON array of all sets in a given <kbd>block_name</kbd><br>
+        Ex. <code>/sets?block_name=Theros</code>
+      </div>
+    </li>
+  </ul>
 </div>

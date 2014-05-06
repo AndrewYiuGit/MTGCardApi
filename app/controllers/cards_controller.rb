@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   #GET /card/:name
   def find_by_name
     search_name = params[:card_name]
-    search_results = Card.where("name LIKE ?", "%" + search_name + "%")
+    search_results = Card.where("name ILIKE ?", "%" + search_name + "%")
 
     formatted_response = []
 
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
 
   def find_by_setcode
     set_code = params[:set_code]
-    search_result = MtgSet.where("code LIKE ?", set_code).limit(1).first
+    search_result = MtgSet.where("code ILIKE ?", set_code).limit(1).first
 
     formatted_response = []
 
@@ -44,7 +44,7 @@ class CardsController < ApplicationController
 
   def find_by_block
     block = params[:block_name]
-    search_results = MtgSet.where("block LIKE ?", block)
+    search_results = MtgSet.where("block ILIKE ?", block)
 
     formatted_response = []
 
